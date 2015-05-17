@@ -1,19 +1,13 @@
-package com.fluxcapacitor.screens.DailyView;
+package com.fluxcapacitor.screens.viewDatabase.DailyView;
 
-import com.fluxcapacitor.core.util.Constants;
 import com.fluxcapacitor.core.util.Information;
-import com.fluxcapacitor.screens.DailyView.DailyController;
-import com.fluxcapacitor.screens.DatabaseView.ViewController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;

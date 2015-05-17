@@ -1,4 +1,4 @@
-package com.fluxcapacitor.screens.menu;
+package com.fluxcapacitor.screens.viewDatabase.menu;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

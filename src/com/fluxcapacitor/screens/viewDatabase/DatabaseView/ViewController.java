@@ -1,9 +1,9 @@
-package com.fluxcapacitor.screens.DatabaseView;
+package com.fluxcapacitor.screens.viewDatabase.DatabaseView;
 
 import com.fluxcapacitor.core.util.Constants;
 import com.fluxcapacitor.core.util.Information;
-import com.fluxcapacitor.screens.YearView.YearViewController;
-import com.fluxcapacitor.screens.menu.AbstractMenuController;
+import com.fluxcapacitor.screens.viewDatabase.YearView.YearViewController;
+import com.fluxcapacitor.screens.viewDatabase.menu.AbstractMenuController;
 import eu.schudt.javafx.controls.calendar.DatePicker;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -20,7 +20,6 @@ import org.datafx.controller.FXMLController;
 import org.datafx.controller.flow.FlowException;
 import org.datafx.controller.flow.action.ActionMethod;
 import org.datafx.controller.flow.action.ActionTrigger;
-import org.datafx.controller.flow.action.LinkAction;
 import org.datafx.controller.flow.context.ActionHandler;
 import org.datafx.controller.flow.context.FlowActionHandler;
 import org.datafx.controller.util.VetoException;

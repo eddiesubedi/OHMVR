@@ -1,6 +1,6 @@
 package com.fluxcapacitor.core;
 
-import com.fluxcapacitor.screens.login.LoginController;
+import com.fluxcapacitor.screens.viewDatabase.login.LoginController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import org.datafx.controller.flow.Flow;

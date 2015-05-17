@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.fluxcapacitor.screens.login;
+package com.fluxcapacitor.screens.viewDatabase.login;
 
 import com.fluxcapacitor.core.util.ConnectDB;
 import com.fluxcapacitor.core.util.Encrypt;
-import com.fluxcapacitor.core.util.Information;
-import com.fluxcapacitor.screens.DatabaseView.ViewController;
+import com.fluxcapacitor.screens.viewDatabase.DatabaseView.ViewController;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Rectangle2D;
@@ -26,7 +25,6 @@ import org.datafx.controller.flow.context.ActionHandler;
 import org.datafx.controller.flow.context.FlowActionHandler;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
