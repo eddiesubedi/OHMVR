@@ -1,0 +1,25 @@
+#topPanel{
+    -fx-background-color: #042844;
+}
+#vBoxPanel{
+    -fx-background-color: #FFF;
+}
+
+#btnLogin{
+    -fx-text-fill: #FFF;
+    -fx-background-color: #F06B50;
+    -fx-background-radius: 0;
+}
+#btnLogin:pressed {
+    /*#3A4968*/
+    -fx-background-color: #169D99;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+#btnLogin:focused {
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+.text-field {
+   -fx-border-color: #004853 ;  
+
+}

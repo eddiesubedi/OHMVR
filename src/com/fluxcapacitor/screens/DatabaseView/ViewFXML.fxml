@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane id="stackPane" fx:id="topPanel" stylesheets="@LoginCSS.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+    <stylesheets>
+        <URL value="@ViewCSS.css" />
+    </stylesheets>
+    <children>
+        <BorderPane prefHeight="868.0" prefWidth="1280.0" style="-fx-background-color: #f6f6f6;">
+            <center>
+                <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <TextFlow id="textFlow" style="-fx-background-color: #FFF;" textAlignment="CENTER">
+                            <children>
+                                <Text fill="#607d8b" strokeType="OUTSIDE" strokeWidth="0.0" text="OHMVR DATA VIEWER">
+                                    <font>
+                                        <Font name="Raleway Light" size="50.0" />
+                                    </font>
+                                </Text>
+                            </children>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                            <padding>
+                                <Insets bottom="60.0" top="60.0" />
+                            </padding>
+                        </TextFlow>
+                        <HBox prefHeight="100.0" prefWidth="200.0" stylesheets="@ViewCSS.css" VBox.vgrow="ALWAYS">
+                            <children>
+                                <AnchorPane id="leftPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFF;" HBox.hgrow="ALWAYS">
+                                    <HBox.margin>
+                                        <Insets bottom="30.0" left="30.0" right="15.0" top="30.0" />
+                                    </HBox.margin>
+                                    <children>
+                                        <VBox prefHeight="629.0" prefWidth="595.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <children>
+                                                <TextFlow>
+                                                    <children>
+                                                        <Text fill="#607d8b" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Range in Years" textAlignment="CENTER">
+                                                            <font>
+                                                                <Font name="PT Sans" size="32.0" />
+                                                            </font>
+                                                        </Text>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets />
+                                                    </VBox.margin>
+                                                    <padding>
+                                                        <Insets bottom="20.0" left="20.0" top="20.0" />
+                                                    </padding>
+                                                </TextFlow>
+                                                <HBox>
+                                                    <children>
+                                                        <TextFlow>
+                                                            <children>
+                                                                <Text fill="#607d8b" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="From:" textAlignment="CENTER">
+                                                                    <font>
+                                                                        <Font name="PT Sans" size="25.0" />
+                                                                    </font>
+                                                                </Text>
+                                                            </children>
+                                                            <HBox.margin>
+                                                                <Insets />
+                                                            </HBox.margin>
+                                                        </TextFlow>
+                                                        <ComboBox id="fromCB" prefHeight="40.0" prefWidth="282.0" HBox.hgrow="ALWAYS">
+                                                            <HBox.margin>
+                                                                <Insets left="20.0" />
+                                                            </HBox.margin>
+                                                        </ComboBox>
+                                                    </children>
+                                                    <padding>
+                                                        <Insets bottom="30.0" left="20.0" top="60.0" />
+                                                    </padding>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="68.0">
+                                                    <children>
+                                                        <TextFlow>
+                                                            <children>
+                                                                <Text fill="#607d8b" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="To:" textAlignment="CENTER">
+                                                                    <font>
+                                                                        <Font name="PT Sans" size="25.0" />
+                                                                    </font>
+                                                                </Text>
+                                                            </children>
+                                                        </TextFlow>
+                                                        <ComboBox id="toCB" prefHeight="40.0" prefWidth="282.0" HBox.hgrow="ALWAYS">
+                                                            <HBox.margin>
+                                                                <Insets left="48.0" />
+                                                            </HBox.margin>
+                                                        </ComboBox>
+                                                    </children>
+                                                    <padding>
+                                                        <Insets bottom="30.0" left="20.0" top="30.0" />
+                                                    </padding>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="168.0">
+                                                    <padding>
+                                                        <Insets left="20.0" top="30.0" />
+                                                    </padding>
+                                                    <children>
+                                                        <RadioButton id="calRadio" mnemonicParsing="false" prefHeight="27.0" prefWidth="187.0" text="Calender Year" textFill="#607d8b">
+                                                            <font>
+                                                                <Font name="PT Sans" size="20.0" />
+                                                            </font>
+                                                        </RadioButton>
+                                                        <RadioButton id="fisRadio" layoutX="30.0" layoutY="70.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="187.0" text="Fiscal Year" textFill="#607d8b">
+                                                            <font>
+                                                                <Font name="PT Sans" size="20.0" />
+                                                            </font>
+                                                            <HBox.margin>
+                                                                <Insets left="20.0" />
+                                                            </HBox.margin>
+                                                        </RadioButton>
+                                                    </children>
+                                                </HBox>
+                                                <TextFlow layoutX="10.0" layoutY="10.0">
+                                                    <children>
+                                                        <Text fill="#607d8b" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose a Data Type" textAlignment="CENTER">
+                                                            <font>
+                                                                <Font name="PT Sans" size="30.0" />
+                                                            </font>
+                                                        </Text>
+                                                    </children>
+                                                    <padding>
+                                                        <Insets bottom="10.0" left="20.0" top="50.0" />
+                                                    </padding>
+                                                </TextFlow>
+                                                <ComboBox id="dataTypeCB" prefHeight="40.0" prefWidth="282.0">
+                                                    <VBox.margin>
+                                                        <Insets left="20.0" />
+                                                    </VBox.margin>
+                                                </ComboBox>
+                                                <Button id="viewData" mnemonicParsing="false" prefHeight="42.0" prefWidth="281.0" text="View Data">
+                                                    <VBox.margin>
+                                                        <Insets left="20.0" top="50.0" />
+                                                    </VBox.margin>
+                                                    <font>
+                                                        <Font name="PT Sans" size="20.0" />
+                                                    </font>
+                                                </Button>
+                                            </children>
+                                            <padding>
+                                                <Insets left="60.0" />
+                                            </padding>
+                                        </VBox>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane id="rightPane" layoutX="40.0" layoutY="40.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFF;" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <VBox id="hBoxDate" prefHeight="629.0" prefWidth="595.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <children>
+                                                <TextFlow>
+                                                    <children>
+                                                        <Text fill="#607d8b" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Specific Date" textAlignment="CENTER">
+                                                            <font>
+                                                                <Font name="PT Sans" size="32.0" />
+                                                            </font>
+                                                        </Text>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets />
+                                                    </VBox.margin>
+                                                    <padding>
+                                                        <Insets bottom="20.0" left="20.0" top="20.0" />
+                                                    </padding>
+                                                </TextFlow>
+                                                <HBox id="dateBox" prefHeight="43.0" prefWidth="562.0">
+                                                    <children>
+                                                        <Text fill="#607d8b" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Date: " textAlignment="CENTER">
+                                                            <font>
+                                                                <Font name="PT Sans" size="25.0" />
+                                                            </font>
+                                                        </Text>
+                                                    </children>
+                                                    <padding>
+                                                        <Insets left="20.0" />
+                                                    </padding>
+                                                    <VBox.margin>
+                                                        <Insets top="50.0" />
+                                                    </VBox.margin>
+                                                </HBox>
+                                                <TextFlow layoutX="10.0" layoutY="10.0">
+                                                    <children>
+                                                        <Text fill="#607d8b" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose a Park" textAlignment="CENTER">
+                                                            <font>
+                                                                <Font name="PT Sans" size="30.0" />
+                                                            </font>
+                                                        </Text>
+                                                    </children>
+                                                    <padding>
+                                                        <Insets bottom="10.0" left="20.0" top="20.0" />
+                                                    </padding>
+                                                    <VBox.margin>
+                                                        <Insets top="30.0" />
+                                                    </VBox.margin>
+                                                </TextFlow>
+                                                <ComboBox id="fromCB" prefHeight="40.0" prefWidth="282.0">
+                                                    <VBox.margin>
+                                                        <Insets left="20.0" />
+                                                    </VBox.margin>
+                                                </ComboBox>
+                                                <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="281.0" text="View Data">
+                                                    <VBox.margin>
+                                                        <Insets left="20.0" top="60.0" />
+                                                    </VBox.margin>
+                                                    <font>
+                                                        <Font name="PT Sans" size="20.0" />
+                                                    </font>
+                                                </Button>
+                                            </children>
+                                            <padding>
+                                                <Insets left="60.0" />
+                                            </padding>
+                                        </VBox>
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets bottom="30.0" left="15.0" right="30.0" top="30.0" />
+                                    </HBox.margin>
+                                </AnchorPane>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </center>
+        </BorderPane>
+        <Circle id="okCircle" fill="WHITE" radius="46.0" stroke="#efefef" strokeType="INSIDE" strokeWidth="3.0">
+            <StackPane.margin>
+                <Insets top="120.0" />
+            </StackPane.margin>
+        </Circle>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #607d8b;" text="OR" textAlignment="CENTER">
+            <StackPane.margin>
+                <Insets top="120.0" />
+            </StackPane.margin>
+            <font>
+                <Font name="Raleway Light" size="34.0" />
+            </font>
+        </Text>
+    </children>
+</StackPane>

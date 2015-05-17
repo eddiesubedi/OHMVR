@@ -1,0 +1,53 @@
+
+.combo-box .arrow{
+    -fx-background-color: #528fcc;
+    -fx-scale-x:3;
+    -fx-scale-y:3;
+}
+.combo-box .arrow-button{
+    -fx-padding:0 20 0 0;
+}
+.combo-box{
+    -fx-background-color: white;
+    -fx-background-radius: 0,0;
+    -fx-border-color: #528fcc;
+    -fx-border-width: 2px;
+}
+.combo-box:focused{
+    -fx-border-color:#528fcc;
+    -fx-effect: dropshadow(gaussian , rgba(0,0,0,0.4), 8, 0, 0, 4);
+}
+
+.radio-button > .radio,
+.radio-button > .radio.unfocused,
+.radio-button:disabled > .radio,
+.radio-button:selected > .radio {
+    -fx-background-color: #528fcc;
+}
+
+
+.radio-button:focused:armed > .radio {
+    -fx-background-color: #F44336;
+}
+
+.radio-button:focused .radio{
+    -fx-effect: dropshadow(gaussian , rgba(0,0,0,0.4), 8, 0, 0, 4);
+}
+
+.radio-button:selected > .radio > .dot {
+    -fx-background-color: #FFF;
+}
+
+.button{
+    -fx-background-color: #528fcc;
+    -fx-text-fill: #FFF;
+}
+.button:hover, .button:focused{
+    -fx-effect: dropshadow(gaussian , rgba(0,0,0,0.4), 8, 0, 0, 4);
+    -fx-translate-y:2;
+}
+
+.button:armed{
+    -fx-translate-y:4;
+    -fx-effect: dropshadow(gaussian , rgba(0,0,0,0), 8, 0, 0, 4);
+}

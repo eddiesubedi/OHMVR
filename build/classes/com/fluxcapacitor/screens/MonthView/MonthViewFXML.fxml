@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane id="rdshjnak" prefHeight="876.0" prefWidth="1253.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextFlow textAlignment="CENTER">
+               <children>
+                  <Text id="headerText" strokeType="OUTSIDE" strokeWidth="0.0" text="Yearly Report of var from 1999-2015">
+                     <font>
+                        <Font name="Raleway Light" size="42.0" />
+                     </font>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="15.0" top="15.0" />
+               </padding>
+            </TextFlow>
+            <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" VBox.vgrow="ALWAYS">
+               <items>
+                  <SplitPane>
+                     <items>
+                        <StackPane fx:id="sPane" />
+                     </items>
+                  </SplitPane>
+                  <TabPane prefHeight="389.0" prefWidth="1251.0" tabClosingPolicy="UNAVAILABLE">
+                     <tabs>
+                        <Tab text="Carnegie">
+                           <content>
+                              <LineChart prefWidth="1203.0">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </LineChart>
+                           </content>
+                        </Tab>
+                        <Tab text="Clay Pit">
+                           <content>
+                              <LineChart>
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </LineChart>
+                           </content>
+                        </Tab>
+                        <Tab text="Heber Dunes">
+                           <content>
+                              <LineChart>
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </LineChart>
+                           </content>
+                        </Tab>
+                        <Tab text="Hollister Hills">
+                           <content>
+                              <LineChart>
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </LineChart>
+                           </content>
+                        </Tab>
+                        <Tab text="Hungry Valley">
+                           <content>
+                              <LineChart>
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </LineChart>
+                           </content>
+                        </Tab>
+                        <Tab text="Oceano Dunes">
+                           <content>
+                              <LineChart>
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </LineChart>
+                           </content>
+                        </Tab>
+                        <Tab text="Ocotillo Wells">
+                           <content>
+                              <LineChart>
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </LineChart>
+                           </content>
+                        </Tab>
+                        <Tab text="Prairie City">
+                           <content>
+                              <LineChart>
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </LineChart>
+                           </content>
+                        </Tab>
+                        <Tab text="All Parks">
+                           <content>
+                              <LineChart>
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </LineChart>
+                           </content>
+                        </Tab>
+                     </tabs>
+                  </TabPane>
+               </items>
+            </SplitPane>
+            <Button id="back" mnemonicParsing="false" text="Back" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
