@@ -1,7 +1,9 @@
-package com.fluxcapacitor.screens.viewDatabase.DailyView;
+package com.fluxcapacitor.screens.View_Database.DailyView;
 
+import com.fluxcapacitor.core.util.Constants;
 import com.fluxcapacitor.core.util.Information;
-import com.fluxcapacitor.screens.viewDatabase.DetailedView.DetailedViewController;
+import com.fluxcapacitor.screens.MenuBar.AbstractMenuController;
+import com.fluxcapacitor.screens.View_Database.DetailedView.DetailedViewController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -29,7 +31,7 @@ import java.util.*;
  * Created by Eddie on 5/16/2015.
  */
 @FXMLController("DailyViewFXML.fxml")
-public class DailyController {
+public class DailyController  extends AbstractMenuController {
     @FXML
     @BackAction
     private Button back;
@@ -50,6 +52,12 @@ public class DailyController {
 
     @PostConstruct
     public void init() {
+        getViewBtn().getStylesheets().add("/com/fluxcapacitor/screens/MenuBar/MainMenuCSS.css");
+        getCreateBtn().getStylesheets().add("/com/fluxcapacitor/screens/MenuBar/MainMenuCSS.css");
+        getInputBtn().getStylesheets().add("/com/fluxcapacitor/screens/MenuBar/MainMenuCSS.css");
+        getParkBtn().getStylesheets().add("/com/fluxcapacitor/screens/MenuBar/MainMenuCSS.css");
+        getUserBtn().getStylesheets().add("/com/fluxcapacitor/screens/MenuBar/MainMenuCSS.css");
+
         String header = "Daily view of " + data.getViewDatRange().get(3) + " on " + data.getSelectedMonth();
         headerText.setText(header);
 
@@ -70,13 +78,10 @@ public class DailyController {
         int end = daysInMonth;
         int column = end - start + 2;
         Random random = new Random();
-        String[] parkName = {"Carnegie", "Clay pit", "Heber Dunes",
-                "Hollister Hills", "Hungry Hills", "Oceano Dunes",
-                "Ocotillo Wells", "Prairie City"};
-        String staffArray[][] = new String[parkName.length][column];
+        String staffArray[][] = new String[Constants.parkName.length][column];
         staffArray[0][0] = "Park Name";
         for (int i = 1; i < row; i++) {
-            staffArray[i][0] = parkName[i];
+            staffArray[i][0] = Constants.parkName[i];
         }
         //top label
         for (int i = start; i <= end; i++) {

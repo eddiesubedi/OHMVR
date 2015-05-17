@@ -10,7 +10,7 @@
 <?import java.net.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane id="stackPane" fx:id="topPanel" stylesheets="@LoginCSS.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane id="stackPane" fx:id="topPanel" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
     <stylesheets>
         <URL value="@ViewCSS.css" />
     </stylesheets>
@@ -204,12 +204,12 @@
                                                         <Insets top="30.0" />
                                                     </VBox.margin>
                                                 </TextFlow>
-                                                <ComboBox id="fromCB" prefHeight="40.0" prefWidth="282.0">
+                                                <ComboBox id="dataTypeSpecCB" prefHeight="40.0" prefWidth="282.0">
                                                     <VBox.margin>
                                                         <Insets left="20.0" />
                                                     </VBox.margin>
                                                 </ComboBox>
-                                                <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="281.0" text="View Data">
+                                                <Button id="ViewSpecBtn" mnemonicParsing="false" prefHeight="42.0" prefWidth="281.0" text="View Data">
                                                     <VBox.margin>
                                                         <Insets left="20.0" top="60.0" />
                                                     </VBox.margin>
@@ -232,6 +232,10 @@
                     </children>
                 </VBox>
             </center>
+         <top>
+             <fx:include source="/com/fluxcapacitor/screens/MenuBar/MenuBarFXML.fxml"/>
+         </top>
+            
         </BorderPane>
         <Circle id="okCircle" fill="WHITE" radius="46.0" stroke="#efefef" strokeType="INSIDE" strokeWidth="3.0">
             <StackPane.margin>

@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.fluxcapacitor.screens.viewDatabase.login;
+package com.fluxcapacitor.screens.login;
 
 import com.fluxcapacitor.core.util.ConnectDB;
 import com.fluxcapacitor.core.util.Encrypt;
-import com.fluxcapacitor.screens.viewDatabase.DatabaseView.ViewController;
+import com.fluxcapacitor.screens.View_Database.MainMenu.MainMenuController;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Rectangle2D;
@@ -65,6 +65,7 @@ public class LoginController {
 
     @PostConstruct
     public void init() {
+
         setupDB();
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
 
@@ -114,7 +115,7 @@ public class LoginController {
         } else {
             btnLogin.setDisable(true);
             try {
-                actionHandler.navigate(ViewController.class);
+                actionHandler.navigate(MainMenuController.class);
             } catch (Exception ex) {
                 
             }

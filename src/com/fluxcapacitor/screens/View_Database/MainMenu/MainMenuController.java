@@ -1,16 +1,15 @@
-package com.fluxcapacitor.screens.viewDatabase.DatabaseView;
+package com.fluxcapacitor.screens.View_Database.MainMenu;
 
 import com.fluxcapacitor.core.util.Constants;
 import com.fluxcapacitor.core.util.Information;
-import com.fluxcapacitor.screens.viewDatabase.YearView.YearViewController;
-import com.fluxcapacitor.screens.viewDatabase.menu.AbstractMenuController;
+import com.fluxcapacitor.screens.View_Database.DetailedView.DetailedViewController;
+import com.fluxcapacitor.screens.View_Database.YearView.YearViewController;
+import com.fluxcapacitor.screens.MenuBar.AbstractMenuController;
 import eu.schudt.javafx.controls.calendar.DatePicker;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.RadioButton;
+import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -27,12 +26,15 @@ import org.datafx.controller.util.VetoException;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import java.net.URL;
+import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 @FXMLController("ViewFXML.fxml")
-public class ViewController extends AbstractMenuController{
+public class MainMenuController extends AbstractMenuController{
     @FXML
     private TextFlow textFlow;
 
@@ -45,21 +47,32 @@ public class ViewController extends AbstractMenuController{
     @FXML
     @ActionTrigger("ViewDataRange")
     private Button viewData;
-
+    
+    @FXML
+    @ActionTrigger("ViewDataSpec")
+    private Button ViewSpecBtn;
+    
     @FXML
     private HBox dateBox;
 
     @FXML
-    private ComboBox fromCB,toCB,dataTypeCB;
+    private ComboBox fromCB,toCB,dataTypeCB,dataTypeSpecCB;
 
     @FXML
     private RadioButton calRadio, fisRadio;
 
     @ActionHandler
     private FlowActionHandler actionHandler;
+    private DatePicker datePicker;
 
     @PostConstruct
     public void init() {
+        getViewBtn().getStylesheets().add("/com/fluxcapacitor/screens/MenuBar/MainMenuCSS.css");
+        getCreateBtn().getStylesheets().add("/com/fluxcapacitor/screens/MenuBar/MainMenuCSS.css");
+        getInputBtn().getStylesheets().add("/com/fluxcapacitor/screens/MenuBar/MainMenuCSS.css");
+        getParkBtn().getStylesheets().add("/com/fluxcapacitor/screens/MenuBar/MainMenuCSS.css");
+        getUserBtn().getStylesheets().add("/com/fluxcapacitor/screens/MenuBar/MainMenuCSS.css");
+
         DropShadow dropShadowTextFlow = new DropShadow();
         dropShadowTextFlow.setOffsetY(2);
         dropShadowTextFlow.setColor(Color.web("#e9e9e9"));
@@ -74,7 +87,7 @@ public class ViewController extends AbstractMenuController{
         leftPane.setEffect(dropShadowLeft);
         rightPane.setEffect(dropShadowLeft);
 
-        DatePicker datePicker = new DatePicker(Locale.ENGLISH);
+        datePicker = new DatePicker(Locale.ENGLISH);
 
         datePicker.setDateFormat(new SimpleDateFormat("yyyy-MM-dd"));
         datePicker.getCalendarView().todayButtonTextProperty().set("Today");
@@ -94,13 +107,14 @@ public class ViewController extends AbstractMenuController{
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 toCB.getItems().clear();
-                for(int i = (int) fromCB.getItems().get((int)newValue);i<=2015;i++){
+                for (int i = (int) fromCB.getItems().get((int) newValue); i <= 2015; i++) {
                     toCB.getItems().add(i);
                 }
             }
         });
 
         dataTypeCB.getItems().addAll(Constants.dataNames);
+        dataTypeSpecCB.getItems().addAll(Constants.dataNames);
     }
     @ActionMethod("ViewDataRange")
     public void viewActionRange() throws VetoException, FlowException {
@@ -122,7 +136,28 @@ public class ViewController extends AbstractMenuController{
         }
         if(!datas.contains("null")){
             data.setViewDatRange(datas);
+            System.out.println(data.getViewDatRange());
             actionHandler.navigate(YearViewController.class);
         }
+    }
+    
+    @ActionMethod("ViewDataSpec")
+    public void viewActionSpec(){
+        if(!datePicker.invalidProperty().getValue()){
+            try{
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(datePicker.getSelectedDate());
+                data.setSelectedYear(cal.get(Calendar.YEAR) + "");
+                data.setSelectedMonth(new DateFormatSymbols().getMonths()[cal.get(Calendar.MONTH)] + "");
+
+                data.setSelectedDay(cal.get(Calendar.DATE) + "");
+                data.setSelectedPark(Constants.dataNames[dataTypeSpecCB.getSelectionModel().getSelectedIndex()]);
+                actionHandler.navigate(DetailedViewController.class);
+            }catch (Exception e){
+
+            }
+
+        }
+
     }
 }

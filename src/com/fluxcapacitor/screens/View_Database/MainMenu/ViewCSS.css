@@ -38,16 +38,16 @@
     -fx-background-color: #FFF;
 }
 
-.button{
+#viewData, #ViewSpecBtn {
     -fx-background-color: #528fcc;
     -fx-text-fill: #FFF;
 }
-.button:hover, .button:focused{
+#viewData:hover, #viewData:focused, #ViewSpecBtn:hover, #ViewSpecBtn:focused{
     -fx-effect: dropshadow(gaussian , rgba(0,0,0,0.4), 8, 0, 0, 4);
     -fx-translate-y:2;
 }
 
-.button:armed{
+#viewData:armed, #ViewSpecBtn:armed{
     -fx-translate-y:4;
     -fx-effect: dropshadow(gaussian , rgba(0,0,0,0), 8, 0, 0, 4);
 }

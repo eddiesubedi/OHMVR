@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <BorderPane id="rdshjnak" prefHeight="876.0" prefWidth="1253.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
    <center>
@@ -151,4 +151,7 @@
          </children>
       </VBox>
    </center>
+   <top>
+      <fx:include source="/com/fluxcapacitor/screens/MenuBar/MenuBarFXML.fxml"/>
+   </top>
 </BorderPane>

@@ -1,15 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.fluxcapacitor.screens.viewDatabase.YearView;
+package com.fluxcapacitor.screens.View_Database.MonthView;
 
-import java.util.Arrays;
-import java.util.Random;
-
+import com.fluxcapacitor.core.util.Constants;
 import com.fluxcapacitor.core.util.Information;
-import com.fluxcapacitor.screens.viewDatabase.MonthView.MonthViewController;
+import com.fluxcapacitor.screens.MenuBar.AbstractMenuController;
+import com.fluxcapacitor.screens.View_Database.DailyView.DailyController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -25,20 +19,21 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-
 import org.datafx.controller.FXMLController;
 import org.datafx.controller.flow.action.BackAction;
 import org.datafx.controller.flow.context.ActionHandler;
 import org.datafx.controller.flow.context.FlowActionHandler;
 
-@FXMLController("YearViewFXML.fxml")
-public class YearViewController {
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import java.util.Arrays;
+import java.util.Random;
 
-    @FXML
-    private StackPane sPane;
-
+/**
+ * Created by Eddie on 5/16/2015.
+ */
+@FXMLController("MonthViewFXML.fxml")
+public class MonthViewController extends AbstractMenuController {
     @FXML
     @BackAction
     private Button back;
@@ -46,32 +41,39 @@ public class YearViewController {
     @FXML
     private Text headerText;
 
+    @FXML
+    private StackPane sPane;
+
     @Inject
     private Information data;
 
     @ActionHandler
     private FlowActionHandler actionHandler;
 
-
     @PostConstruct
-    public void init() {
-        String header = "Yearly report of "+data.getViewDatRange().get(3)+" from "+data.getViewDatRange().get(0)+"-"+data.getViewDatRange().get(1);
+    public void init(){
+        getViewBtn().getStylesheets().add("/com/fluxcapacitor/screens/MenuBar/MainMenuCSS.css");
+        getCreateBtn().getStylesheets().add("/com/fluxcapacitor/screens/MenuBar/MainMenuCSS.css");
+        getInputBtn().getStylesheets().add("/com/fluxcapacitor/screens/MenuBar/MainMenuCSS.css");
+        getParkBtn().getStylesheets().add("/com/fluxcapacitor/screens/MenuBar/MainMenuCSS.css");
+        getUserBtn().getStylesheets().add("/com/fluxcapacitor/screens/MenuBar/MainMenuCSS.css");
+
+        String header = "Monthly report of "+data.getViewDatRange().get(3)+" of "+data.getSelectedYear();
         headerText.setText(header);
+
         int row = 8;
-        int start = Integer.parseInt(data.getViewDatRange().get(0));
-        int end = Integer.parseInt(data.getViewDatRange().get(1));
+        int start = 1;
+        int end = 12;
         int column = end - start + 2;
         Random random = new Random();
-        String[] parkName = { "Carnegie", "Clay pit", "Heber Dunes",
-				"Hollister Hills", "Hungry Hills", "Oceano Dunes",
-				"Ocotillo Wells", "Prairie City" };
-        String staffArray[][] = new String[parkName.length][column];
+
+        String staffArray[][] = new String[Constants.parkName.length][column];
         staffArray[0][0]="Park Name";
         for(int i =1;i<row;i++){
-            staffArray[i][0]=parkName[i];
+            staffArray[i][0]=Constants.parkName[i];
         }
         for(int i =start;i<=end;i++){
-            staffArray[0][i-start+1] = i+"";
+            staffArray[0][i-start+1] = Constants.months[i];
         }
         for (int i = 1; i < column; i++) {
             for (int j = 1; j < row; j++) {
@@ -103,26 +105,25 @@ public class YearViewController {
         table.setItems(dataObserve);
         sPane.getChildren().add(table);
 
-
         table.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                if(event.getButton().equals(MouseButton.PRIMARY)){
-                    if(event.getClickCount() == 2){
+                if (event.getButton().equals(MouseButton.PRIMARY)) {
+                    if (event.getClickCount() == 2) {
                         try {
                             Text temp = (Text) event.getTarget();
-                            if(!temp.getText().equals("sort")){
-                                data.setSelectedYear(temp.getText());
-                                actionHandler.navigate(MonthViewController.class);
+                            if (!temp.getText().equals("sort")) {
+                                data.setSelectedMonth(temp.getText());
+                                actionHandler.navigate(DailyController.class);
                             }
                         } catch (Exception e) {
 
                         }
                         try {
                             Label temp = (Label) event.getTarget();
-                            if(!temp.getText().equals("sort")){
-                                data.setSelectedYear(temp.getText());
-                                actionHandler.navigate(MonthViewController.class);
+                            if (!temp.getText().equals("sort")) {
+                                data.setSelectedMonth(temp.getText());
+                                actionHandler.navigate(DailyController.class);
                             }
                         } catch (Exception e) {
 
@@ -132,7 +133,5 @@ public class YearViewController {
 
             }
         });
-
-
     }
 }
