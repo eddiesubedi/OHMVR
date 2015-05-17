@@ -11,7 +11,23 @@ import java.util.ArrayList;
 @FlowScoped
 public class Information {
     private ArrayList<String> viewDatRange = new ArrayList<>();
-    private String selectedYear, selectedMonth;
+    private String selectedYear, selectedMonth, selectedPark, selectedDay;
+
+    public void setSelectedPark(String selectedPark) {
+        this.selectedPark = selectedPark;
+    }
+
+    public void setSelectedDay(String selectedDay) {
+        this.selectedDay = selectedDay;
+    }
+
+    public String getSelectedPark() {
+        return selectedPark;
+    }
+
+    public String getSelectedDay() {
+        return selectedDay;
+    }
 
     public String getSelectedMonth() {
         return selectedMonth;

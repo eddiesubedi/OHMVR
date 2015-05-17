@@ -1,6 +1,7 @@
 package com.fluxcapacitor.screens.viewDatabase.DailyView;
 
 import com.fluxcapacitor.core.util.Information;
+import com.fluxcapacitor.screens.viewDatabase.DetailedView.DetailedViewController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -13,9 +14,11 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
 import org.datafx.controller.FXMLController;
+import org.datafx.controller.flow.FlowException;
 import org.datafx.controller.flow.action.BackAction;
 import org.datafx.controller.flow.context.ActionHandler;
 import org.datafx.controller.flow.context.FlowActionHandler;
+import org.datafx.controller.util.VetoException;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -115,8 +118,21 @@ public class DailyController {
         table.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                TablePosition tc = table.getFocusModel().getFocusedCell();
-                System.out.println(tc.getRow()+" "+tc.getColumn()); // I get the correct row, but the column value is null.
+                if (event.getClickCount() == 2) {
+                    TablePosition tc = table.getFocusModel().getFocusedCell();
+                    if(tc.getColumn()>0){
+                        data.setSelectedDay(tc.getColumn()+"");
+                        data.setSelectedPark(table.getSelectionModel().getSelectedItem()[0]);
+                        try {
+                            actionHandler.navigate(DetailedViewController.class);
+                        } catch (VetoException e) {
+                            e.printStackTrace();
+                        } catch (FlowException e) {
+                            e.printStackTrace();
+                        }
+//                    System.out.println(table.getSelectionModel().getSelectedItem()[0]+" day:"+tc.getColumn());
+                    }
+                }
             }
         });
     }
