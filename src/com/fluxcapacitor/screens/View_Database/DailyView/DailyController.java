@@ -1,7 +1,7 @@
 package com.fluxcapacitor.screens.View_Database.DailyView;
 
 import com.fluxcapacitor.core.util.Constants;
-import com.fluxcapacitor.core.util.Information;
+import com.fluxcapacitor.core.util.Inject.InformationView;
 import com.fluxcapacitor.screens.MenuBar.AbstractMenuController;
 import com.fluxcapacitor.screens.View_Database.DetailedView.DetailedViewController;
 import javafx.beans.property.SimpleStringProperty;
@@ -43,7 +43,7 @@ public class DailyController  extends AbstractMenuController {
     private StackPane sPane;
 
     @Inject
-    private Information data;
+    private InformationView data;
 
     @ActionHandler
     private FlowActionHandler actionHandler;

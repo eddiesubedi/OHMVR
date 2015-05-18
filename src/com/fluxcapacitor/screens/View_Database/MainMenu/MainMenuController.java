@@ -1,7 +1,7 @@
 package com.fluxcapacitor.screens.View_Database.MainMenu;
 
 import com.fluxcapacitor.core.util.Constants;
-import com.fluxcapacitor.core.util.Information;
+import com.fluxcapacitor.core.util.Inject.InformationView;
 import com.fluxcapacitor.screens.View_Database.DetailedView.DetailedViewController;
 import com.fluxcapacitor.screens.View_Database.YearView.YearViewController;
 import com.fluxcapacitor.screens.MenuBar.AbstractMenuController;
@@ -30,7 +30,6 @@ import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
 @FXMLController("ViewFXML.fxml")
@@ -39,7 +38,7 @@ public class MainMenuController extends AbstractMenuController{
     private TextFlow textFlow;
 
     @Inject
-    private Information data;
+    private InformationView data;
 
     @FXML
     private AnchorPane leftPane, rightPane;

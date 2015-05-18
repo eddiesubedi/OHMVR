@@ -6,7 +6,7 @@
 package com.fluxcapacitor.screens.View_Database.YearView;
 
 import com.fluxcapacitor.core.util.Constants;
-import com.fluxcapacitor.core.util.Information;
+import com.fluxcapacitor.core.util.Inject.InformationView;
 import com.fluxcapacitor.screens.MenuBar.AbstractMenuController;
 import com.fluxcapacitor.screens.View_Database.MonthView.MonthViewController;
 import javafx.beans.property.SimpleStringProperty;
@@ -28,7 +28,6 @@ import org.datafx.controller.FXMLController;
 import org.datafx.controller.flow.action.BackAction;
 import org.datafx.controller.flow.context.ActionHandler;
 import org.datafx.controller.flow.context.FlowActionHandler;
-import sun.applet.Main;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -49,7 +48,7 @@ public class YearViewController extends AbstractMenuController{
     private Text headerText;
 
     @Inject
-    private Information data;
+    private InformationView data;
 
     @ActionHandler
     private FlowActionHandler actionHandler;

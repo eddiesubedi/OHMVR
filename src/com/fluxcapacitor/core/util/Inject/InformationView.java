@@ -1,4 +1,4 @@
-package com.fluxcapacitor.core.util;
+package com.fluxcapacitor.core.util.Inject;
 
 import org.datafx.controller.flow.injection.FlowScoped;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Created by Eddie on 5/16/2015.
  */
 @FlowScoped
-public class Information {
+public class InformationView {
     private ArrayList<String> viewDatRange = new ArrayList<>();
     private String selectedYear, selectedMonth, selectedPark, selectedDay;
 

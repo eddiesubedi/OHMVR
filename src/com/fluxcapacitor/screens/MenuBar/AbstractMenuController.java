@@ -1,12 +1,10 @@
 package com.fluxcapacitor.screens.MenuBar;
 
+import com.fluxcapacitor.screens.Graph.MainMenuG.GraphMainMenuController;
+import com.fluxcapacitor.screens.Input.MainMenu.InputMainMenuController;
 import com.fluxcapacitor.screens.View_Database.MainMenu.MainMenuController;
-import com.fluxcapacitor.screens.login.LoginController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
-import org.datafx.controller.flow.action.ActionMethod;
-import org.datafx.controller.flow.action.ActionTrigger;
 import org.datafx.controller.flow.action.LinkAction;
 
 public class AbstractMenuController {
@@ -14,8 +12,10 @@ public class AbstractMenuController {
     @LinkAction(MainMenuController.class)
     private Button viewBtn;
     @FXML
+    @LinkAction(InputMainMenuController.class)
     private Button inputBtn;
     @FXML
+    @LinkAction(GraphMainMenuController.class)
     private Button createBtn;
     @FXML
     private Button userBtn;
