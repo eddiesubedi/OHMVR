@@ -1,6 +1,6 @@
 package com.fluxcapacitor.screens.Graph.MainMenuG;
 
-import com.fluxcapacitor.core.util.Constants;
+import com.fluxcapacitor.core.util.Inject.InformationConstants;
 import com.fluxcapacitor.core.util.Inject.InformationGraph;
 import com.fluxcapacitor.screens.Graph.AreaGraph.AreaGraphController;
 import com.fluxcapacitor.screens.Graph.BarChart.BarGraphController;
@@ -45,7 +45,10 @@ public class GraphMainMenuController extends AbstractMenuController {
     private Button buttonDay;
 
     @Inject
-    InformationGraph datas;
+    private InformationGraph datas;
+
+    @Inject
+    private InformationConstants constants;
 
     @ActionHandler
     private FlowActionHandler actionHandler;
@@ -62,7 +65,7 @@ public class GraphMainMenuController extends AbstractMenuController {
         getParkBtn().getStylesheets().add("/com/fluxcapacitor/screens/MenuBar/MainMenuCSS.css");
         getUserBtn().getStylesheets().add("/com/fluxcapacitor/screens/MenuBar/MainMenuCSS.css");
 
-        ArrayList<String> temps = new ArrayList<String>(Arrays.asList(Constants.parkName));
+        ArrayList<String> temps = new ArrayList<String>(Arrays.asList(constants.getParkName()));
         temps.remove(0);
 
         buttonYear = new Button("Create Graph");
@@ -116,18 +119,18 @@ public class GraphMainMenuController extends AbstractMenuController {
 
         fromCBYear.getItems().addAll(years);
         toCBYear.getItems().addAll(years);
-        graphCBYear.getItems().addAll(Constants.graphTypes);
+        graphCBYear.getItems().addAll(constants.graphTypes);
 
         chooseYearCBMonth.getItems().addAll(years);
-        fromCBMonth.getItems().addAll(Constants.months);
-        toCBMonth.getItems().addAll(Constants.months);
-        graphCBMonth.getItems().addAll(Constants.graphTypes);
+        fromCBMonth.getItems().addAll(constants.months);
+        toCBMonth.getItems().addAll(constants.months);
+        graphCBMonth.getItems().addAll(constants.graphTypes);
 
         chooseYearCBDay.getItems().addAll(years);
-        chooseMonthCBDay.getItems().addAll(Constants.months);
+        chooseMonthCBDay.getItems().addAll(constants.months);
         fromCBDay.getItems().addAll(days);
         toCBDay.getItems().addAll(days);
-        graphCBDay.getItems().addAll(Constants.graphTypes);
+        graphCBDay.getItems().addAll(constants.graphTypes);
     }
 
     private void setUpHandlers() {

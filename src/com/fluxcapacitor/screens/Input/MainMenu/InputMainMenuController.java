@@ -1,6 +1,6 @@
 package com.fluxcapacitor.screens.Input.MainMenu;
 
-import com.fluxcapacitor.core.util.Constants;
+import com.fluxcapacitor.core.util.Inject.InformationConstants;
 import com.fluxcapacitor.core.util.Inject.InformationInput;
 import com.fluxcapacitor.screens.Input.Add.InputController;
 import com.fluxcapacitor.screens.MenuBar.AbstractMenuController;
@@ -47,6 +47,9 @@ public class InputMainMenuController extends AbstractMenuController{
     @Inject
     InformationInput data;
 
+    @Inject
+    InformationConstants constants;
+
     @ActionHandler
     private FlowActionHandler actionHandler;
 
@@ -71,7 +74,7 @@ public class InputMainMenuController extends AbstractMenuController{
         dateBox.getChildren().add(datePicker);
 
 
-        dataTypeSpecCB.getItems().addAll(Constants.dataNames);
+        dataTypeSpecCB.getItems().addAll(constants.dataNames);
 
         getViewBtn().getStylesheets().add("/com/fluxcapacitor/screens/MenuBar/MainMenuCSS.css");
         getCreateBtn().getStylesheets().add("/com/fluxcapacitor/screens/MenuBar/MainMenuCSS.css");
@@ -91,7 +94,7 @@ public class InputMainMenuController extends AbstractMenuController{
                     data.setSelectedMonth(new DateFormatSymbols().getMonths()[cal.get(Calendar.MONTH)] + "");
 
                     data.setSelectedDay(cal.get(Calendar.DATE) + "");
-                    data.setSelectedPark(Constants.dataNames[dataTypeSpecCB.getSelectionModel().getSelectedIndex()]);
+                    data.setSelectedPark(constants.dataNames[dataTypeSpecCB.getSelectionModel().getSelectedIndex()]);
                     actionHandler.navigate(InputController.class);
                 }catch (Exception e){
 

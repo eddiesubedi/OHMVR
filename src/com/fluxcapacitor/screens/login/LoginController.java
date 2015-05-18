@@ -7,6 +7,7 @@ package com.fluxcapacitor.screens.login;
 
 import com.fluxcapacitor.core.util.ConnectDB;
 import com.fluxcapacitor.core.util.Encrypt;
+import com.fluxcapacitor.core.util.Inject.InformationConstants;
 import com.fluxcapacitor.screens.View_Database.MainMenu.MainMenuController;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -25,6 +26,7 @@ import org.datafx.controller.flow.context.ActionHandler;
 import org.datafx.controller.flow.context.FlowActionHandler;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -56,7 +58,10 @@ public class LoginController {
 
     @ActionHandler
     private FlowActionHandler actionHandler;
-    
+
+    @Inject
+    private InformationConstants constants;
+
     private ArrayList<String> infos = new ArrayList<>();
     private String resetCss = ".setStyle(\"-fx-border-color: #004853;-fx-focus-color: #007E80 ;\");";
     private String failCSS = "-fx-border-color: #FA2A00;-fx-text-fill: #FA2A00;-fx-border-width:2px;";
@@ -115,6 +120,7 @@ public class LoginController {
         } else {
             btnLogin.setDisable(true);
             try {
+                constants.setUp();
                 actionHandler.navigate(MainMenuController.class);
             } catch (Exception ex) {
                 
@@ -124,7 +130,7 @@ public class LoginController {
 
     private void setupDB() {
         ConnectDB db = new ConnectDB();
-        db.connectToDB();
+        db.connectToDB("login");
         try {
             Statement statement = db.getConnection().createStatement();
             ResultSet rs = statement.executeQuery("Select * from account");

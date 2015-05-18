@@ -1,6 +1,6 @@
 package com.fluxcapacitor.screens.View_Database.DailyView;
 
-import com.fluxcapacitor.core.util.Constants;
+import com.fluxcapacitor.core.util.Inject.InformationConstants;
 import com.fluxcapacitor.core.util.Inject.InformationView;
 import com.fluxcapacitor.screens.MenuBar.AbstractMenuController;
 import com.fluxcapacitor.screens.View_Database.DetailedView.DetailedViewController;
@@ -10,7 +10,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TablePosition;
+import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
@@ -45,6 +48,9 @@ public class DailyController  extends AbstractMenuController {
     @Inject
     private InformationView data;
 
+    @Inject
+    private InformationConstants constants;
+
     @ActionHandler
     private FlowActionHandler actionHandler;
 
@@ -78,10 +84,10 @@ public class DailyController  extends AbstractMenuController {
         int end = daysInMonth;
         int column = end - start + 2;
         Random random = new Random();
-        String staffArray[][] = new String[Constants.parkName.length][column];
+        String staffArray[][] = new String[constants.getParkName().length][column];
         staffArray[0][0] = "Park Name";
         for (int i = 1; i < row; i++) {
-            staffArray[i][0] = Constants.parkName[i];
+            staffArray[i][0] = constants.getParkName()[i];
         }
         //top label
         for (int i = start; i <= end; i++) {

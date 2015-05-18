@@ -1,6 +1,7 @@
 package com.fluxcapacitor.screens.View_Database.MainMenu;
 
-import com.fluxcapacitor.core.util.Constants;
+import com.fluxcapacitor.core.util.ConnectDB;
+import com.fluxcapacitor.core.util.Inject.InformationConstants;
 import com.fluxcapacitor.core.util.Inject.InformationView;
 import com.fluxcapacitor.screens.View_Database.DetailedView.DetailedViewController;
 import com.fluxcapacitor.screens.View_Database.YearView.YearViewController;
@@ -26,9 +27,11 @@ import org.datafx.controller.util.VetoException;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import java.net.URL;
+import java.sql.*;
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -39,6 +42,9 @@ public class MainMenuController extends AbstractMenuController{
 
     @Inject
     private InformationView data;
+
+    @Inject
+    private InformationConstants constants;
 
     @FXML
     private AnchorPane leftPane, rightPane;
@@ -97,7 +103,7 @@ public class MainMenuController extends AbstractMenuController{
         datePicker.getStylesheets().add(css);
         dateBox.getChildren().add(datePicker);
 
-        for(int i = 1980;i<=2015;i++){
+        for(int i = 2011;i<=2015;i++){
             fromCB.getItems().add(i);
             toCB.getItems().add(i);
         }
@@ -112,9 +118,10 @@ public class MainMenuController extends AbstractMenuController{
             }
         });
 
-        dataTypeCB.getItems().addAll(Constants.dataNames);
-        dataTypeSpecCB.getItems().addAll(Constants.dataNames);
+        dataTypeCB.getItems().addAll(constants.dataNames);
+        dataTypeSpecCB.getItems().addAll(constants.dataNames);
     }
+
     @ActionMethod("ViewDataRange")
     public void viewActionRange() throws VetoException, FlowException {
         data.clearviewDatRange();
@@ -131,7 +138,7 @@ public class MainMenuController extends AbstractMenuController{
         if(dataTypeCB.getSelectionModel().getSelectedIndex()==-1){
             datas.add("null");
         }else {
-            datas.add(Constants.dataNames[dataTypeCB.getSelectionModel().getSelectedIndex()] + "");
+            datas.add(dataTypeCB.getSelectionModel().getSelectedIndex()+"");
         }
         if(!datas.contains("null")){
             data.setViewDatRange(datas);
@@ -139,7 +146,7 @@ public class MainMenuController extends AbstractMenuController{
             actionHandler.navigate(YearViewController.class);
         }
     }
-    
+
     @ActionMethod("ViewDataSpec")
     public void viewActionSpec(){
         if(!datePicker.invalidProperty().getValue()){
@@ -150,7 +157,7 @@ public class MainMenuController extends AbstractMenuController{
                 data.setSelectedMonth(new DateFormatSymbols().getMonths()[cal.get(Calendar.MONTH)] + "");
 
                 data.setSelectedDay(cal.get(Calendar.DATE) + "");
-                data.setSelectedPark(Constants.dataNames[dataTypeSpecCB.getSelectionModel().getSelectedIndex()]);
+                data.setSelectedPark(constants.dataNames[dataTypeSpecCB.getSelectionModel().getSelectedIndex()]);
                 actionHandler.navigate(DetailedViewController.class);
             }catch (Exception e){
 

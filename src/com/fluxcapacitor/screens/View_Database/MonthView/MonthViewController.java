@@ -1,6 +1,6 @@
 package com.fluxcapacitor.screens.View_Database.MonthView;
 
-import com.fluxcapacitor.core.util.Constants;
+import com.fluxcapacitor.core.util.Inject.InformationConstants;
 import com.fluxcapacitor.core.util.Inject.InformationView;
 import com.fluxcapacitor.screens.MenuBar.AbstractMenuController;
 import com.fluxcapacitor.screens.View_Database.DailyView.DailyController;
@@ -47,6 +47,9 @@ public class MonthViewController extends AbstractMenuController {
     @Inject
     private InformationView data;
 
+    @Inject
+    private InformationConstants constants;
+
     @ActionHandler
     private FlowActionHandler actionHandler;
 
@@ -67,13 +70,13 @@ public class MonthViewController extends AbstractMenuController {
         int column = end - start + 2;
         Random random = new Random();
 
-        String staffArray[][] = new String[Constants.parkName.length][column];
+        String staffArray[][] = new String[constants.getParkName().length][column];
         staffArray[0][0]="Park Name";
         for(int i =1;i<row;i++){
-            staffArray[i][0]=Constants.parkName[i];
+            staffArray[i][0]= constants.getParkName()[i];
         }
         for(int i =start;i<=end;i++){
-            staffArray[0][i-start+1] = Constants.months[i];
+            staffArray[0][i-start+1] = constants.getParkName()[i];
         }
         for (int i = 1; i < column; i++) {
             for (int j = 1; j < row; j++) {

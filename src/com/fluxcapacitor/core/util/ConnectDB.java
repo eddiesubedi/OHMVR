@@ -6,12 +6,12 @@ import java.sql.DriverManager;
 
 public class ConnectDB {
     private Connection connection;
-    public void connectToDB(){
+    public void connectToDB(String db){
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/login","root","password");
-            System.out.println("Connected to database");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost/"+db,"root","password");
+            System.out.println("Connected to "+db);
         } catch (Exception e) {
-            System.out.println("Cannot connect to database");
+            System.out.println("Cannot connect to "+db+" database");
         }
     }
     public Connection getConnection(){
