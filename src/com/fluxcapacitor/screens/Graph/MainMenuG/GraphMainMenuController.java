@@ -2,6 +2,11 @@ package com.fluxcapacitor.screens.Graph.MainMenuG;
 
 import com.fluxcapacitor.core.util.Constants;
 import com.fluxcapacitor.core.util.Inject.InformationGraph;
+import com.fluxcapacitor.screens.Graph.AreaGraph.AreaGraphController;
+import com.fluxcapacitor.screens.Graph.BarChart.BarGraphController;
+import com.fluxcapacitor.screens.Graph.LineGraph.LineGraphController;
+import com.fluxcapacitor.screens.Graph.PieChart.PieChartGraphController;
+import com.fluxcapacitor.screens.Graph.ScatterGraph.ScatterGraphController;
 import com.fluxcapacitor.screens.MenuBar.AbstractMenuController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -11,6 +16,8 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import org.controlsfx.control.CheckComboBox;
 import org.datafx.controller.FXMLController;
+import org.datafx.controller.flow.context.ActionHandler;
+import org.datafx.controller.flow.context.FlowActionHandler;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -39,6 +46,10 @@ public class GraphMainMenuController extends AbstractMenuController {
 
     @Inject
     InformationGraph datas;
+
+    @ActionHandler
+    private FlowActionHandler actionHandler;
+
     private CheckComboBox parksYear;
     private CheckComboBox parksMonth;
     private CheckComboBox parksDay;
@@ -128,8 +139,25 @@ public class GraphMainMenuController extends AbstractMenuController {
                 temp[2] = graphCBYear.getSelectionModel().getSelectedItem() + "";
                 temp[3] = parksYear.getCheckModel().getCheckedIndices().toString();
 
-                if (!(Arrays.asList(temp).contains("") || Arrays.asList(temp).contains("[]"))) {
+                if (!(Arrays.asList(temp).contains("") || Arrays.asList(temp).contains("[]") || Arrays.asList(temp).contains("null"))) {
                     datas.setYearDatas(temp);
+                    switch (temp[2]){
+                        case "Pie Chart":
+                            actionHandler.navigate(PieChartGraphController.class);
+                        break;
+                        case "Line Graph":
+                            actionHandler.navigate(LineGraphController.class);
+                        break;
+                        case "Area Graph":
+                            actionHandler.navigate(AreaGraphController.class);
+                        break;
+                        case "Scatter Graph":
+                            actionHandler.navigate(ScatterGraphController.class);
+                        break;
+                        case "Bar Chart":
+                            actionHandler.navigate(BarGraphController.class);
+                        break;
+                    }
                 }
             } catch (Exception e) {
 
@@ -145,8 +173,25 @@ public class GraphMainMenuController extends AbstractMenuController {
                 temp[3] = graphCBMonth.getSelectionModel().getSelectedItem() + "";
                 temp[4] = parksMonth.getCheckModel().getCheckedIndices().toString();
 
-                if (!(Arrays.asList(temp).contains("") || Arrays.asList(temp).contains("null"))) {
+                if (!(Arrays.asList(temp).contains("") || Arrays.asList(temp).contains("null") || Arrays.asList(temp).contains("[]"))) {
                     datas.setMonthDatas(temp);
+                    switch (temp[3]){
+                        case "Pie Chart":
+                            actionHandler.navigate(PieChartGraphController.class);
+                            break;
+                        case "Line Graph":
+                            actionHandler.navigate(LineGraphController.class);
+                            break;
+                        case "Area Graph":
+                            actionHandler.navigate(AreaGraphController.class);
+                            break;
+                        case "Scatter Graph":
+                            actionHandler.navigate(ScatterGraphController.class);
+                            break;
+                        case "Bar Chart":
+                            actionHandler.navigate(BarGraphController.class);
+                            break;
+                    }
                 }
             } catch (Exception e) {
 
@@ -163,8 +208,26 @@ public class GraphMainMenuController extends AbstractMenuController {
                 temp[4] = graphCBDay.getSelectionModel().getSelectedItem() + "";
                 temp[5] = parksDay.getCheckModel().getCheckedIndices().toString();
 
-                if (!(Arrays.asList(temp).contains("") || Arrays.asList(temp).contains("null"))) {
+                if (!(Arrays.asList(temp).contains("") || Arrays.asList(temp).contains("null") || Arrays.asList(temp).contains("[]"))) {
+                    System.out.println(Arrays.toString(temp));
                     datas.setDayDatas(temp);
+                    switch (temp[4]){
+                        case "Pie Chart":
+                            actionHandler.navigate(PieChartGraphController.class);
+                            break;
+                        case "Line Graph":
+                            actionHandler.navigate(LineGraphController.class);
+                            break;
+                        case "Area Graph":
+                            actionHandler.navigate(AreaGraphController.class);
+                            break;
+                        case "Scatter Graph":
+                            actionHandler.navigate(ScatterGraphController.class);
+                            break;
+                        case "Bar Chart":
+                            actionHandler.navigate(BarGraphController.class);
+                            break;
+                    }
                 }
             } catch (Exception e) {
 

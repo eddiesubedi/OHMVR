@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" />
+<BorderPane prefHeight="876.0" prefWidth="1253.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextFlow style="-fx-background-color: #FFF;" textAlignment="CENTER">
+               <children>
+                  <Text id="headerText" strokeType="OUTSIDE" strokeWidth="0.0" text="Yearly Report of var from 1999-2015">
+                     <font>
+                        <Font name="Raleway Light" size="42.0" />
+                     </font>
+                  </Text>
+               </children>
+               <padding>
+                  <Insets bottom="15.0" top="15.0" />
+               </padding>
+            </TextFlow>
+         </children>
+      </VBox>
+   </center>
+   <top>
+      <!--<fx:include source="/com/fluxcapacitor/screens/MenuBar/MenuBarFXML.fxml"/>-->
+   </top>
+</BorderPane>
