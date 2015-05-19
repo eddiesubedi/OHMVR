@@ -1,6 +1,7 @@
 package com.fluxcapacitor.core.util.Inject;
 
 import com.fluxcapacitor.core.util.ConnectDB;
+import org.datafx.controller.flow.injection.FlowScoped;
 import org.datafx.controller.injection.ApplicationScoped;
 
 import java.sql.ResultSet;
@@ -25,7 +26,10 @@ public class InformationConstants {
     public static final String dataNames[] = {"","SE: Event", "SE: People","Paid: Vehicle","Paid: Non-Vehicle","Paid: Annual Day Use","Paid: Daily Use","Paid: Senior","Paid: Vet.","Paid: Disabled","Paid: OHV","Paid: Annual Sale","Paid: Golden Brear/Dis. Vet.","Paid: Golden Poppy","Paid: Camping","Paid: Senior Camping","Paid: Disabled Camping","Paid: People-to-Vehicle","Paid: Other","Free: Day Use","Free: Golden Bear","Free: Camping","Free: Dis/Vet","Free: Vehicles","Free: people","Free: Ratio","Free: Hudner","Free: Foundation","Free: Other","Turnaway: Camp","Turnaway: Day Use","Turnaway: Boats","Other: People","Other: Camping","Other: MC","Other: ATV","Other: 4x4","Other: ROV","Other: AQMA","Other: Dune","Other: Legal Vehicle","Other: Karting","Other: HangTown","Other: Other"};
     private static  String[] parkName;
 
+    public static String firstPark;
+
     public void setUp(){
+        System.out.println("asddas");
         ArrayList<String> parkNames = new ArrayList<>();
         parkNames.add("");
 
@@ -45,6 +49,7 @@ public class InformationConstants {
             e.printStackTrace();
         }
         String[] temp = parkNames.toArray(new String[parkNames.size()]);
+        firstPark = parkNames.get(1);
         setParkName(temp);
 
 

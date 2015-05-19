@@ -232,10 +232,10 @@
                     </children>
                 </VBox>
             </center>
-         <top>
-             <fx:include source="/com/fluxcapacitor/screens/MenuBar/MenuBarFXML.fxml"/>
-         </top>
-            
+            <top>
+                <fx:include source="/com/fluxcapacitor/screens/MenuBar/MenuBarFXML.fxml"/>
+            </top>
+
         </BorderPane>
         <Circle id="okCircle" fill="WHITE" radius="46.0" stroke="#efefef" strokeType="INSIDE" strokeWidth="3.0">
             <StackPane.margin>

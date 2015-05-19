@@ -3,6 +3,7 @@ package com.fluxcapacitor.core.util.Inject;
 import org.datafx.controller.flow.injection.FlowScoped;
 
 import java.lang.reflect.Array;
+import java.sql.Connection;
 import java.util.ArrayList;
 
 /**
@@ -12,6 +13,33 @@ import java.util.ArrayList;
 public class InformationView {
     private ArrayList<String> viewDatRange = new ArrayList<>();
     private String selectedYear, selectedMonth, selectedPark, selectedDay;
+    ArrayList<String> queries = new ArrayList<>();
+    ArrayList<String> tableNames = new ArrayList<>();
+    ArrayList<Connection> connections = new ArrayList<>();
+
+    public ArrayList<Connection> getConnections() {
+        return connections;
+    }
+
+    public void setConnections(ArrayList<Connection> connections) {
+        this.connections = connections;
+    }
+
+    public ArrayList<String> getQueries() {
+        return queries;
+    }
+
+    public void setQueries(ArrayList<String> queries) {
+        this.queries = queries;
+    }
+
+    public ArrayList<String> getTableNames() {
+        return tableNames;
+    }
+
+    public void setTableNames(ArrayList<String> tableNames) {
+        this.tableNames = tableNames;
+    }
 
     public void setSelectedPark(String selectedPark) {
         this.selectedPark = selectedPark;

@@ -123,7 +123,7 @@ public class LoginController {
                 constants.setUp();
                 actionHandler.navigate(MainMenuController.class);
             } catch (Exception ex) {
-                
+
             }
         }
     }
